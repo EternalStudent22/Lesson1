@@ -1,5 +1,6 @@
 package model;
 
+
 public class Kotik {
    private static int countCat=0;
    private String nameCat;
