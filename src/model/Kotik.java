@@ -47,10 +47,10 @@ public class Kotik {
       this.weightCat=weightCat;
       this.meow=meow;
       countCat+=1;
+      System.out.println("номер кота " +nameCat+":"+countCat);
 
    }
    public Kotik(){
-      countCat+=1;
    }
 
    public void setKotik(String nameCat,int prettiness,int weightCat,String meow){
@@ -58,13 +58,20 @@ public class Kotik {
       this.prettiness=prettiness;
       this.weightCat=weightCat;
       this.meow=meow;
+      countCat+=1;
+      System.out.println("номер кота " +nameCat+":"+countCat);
    }
 
    public void eat(int satiety){
 
          this.satiety+=satiety;
+      System.out.println("кот поел");
    }
    public boolean eat(int satiety, String nameEat){
+
+      this.satiety+=satiety;
+      System.out.println("кот поел"+nameEat);
+
 
       return true;
    }
@@ -78,45 +85,45 @@ public class Kotik {
 
    private boolean sleep(int satiety){
       if(satiety<=0){
-         eat(2);
          return false;
       }else{
+         System.out.println("Кот спит");
          this.satiety--;
          return true;
       }
    }
    private boolean play(int satiety){
       if(satiety<=0){
-         eat(2);
          return false;
       }else{
+         System.out.println("Кот играет");
          this.satiety--;
          return true;
       }
    }
    private boolean chaseMouse(int satiety){
       if(satiety<=0){
-         eat(1);
          return false;
       }else{
+         System.out.println("Кот ловит мышь");
          this.satiety--;
          return true;
       }
    }
    private boolean bite(int satiety){
       if(satiety<=0){
-         eat(3);
          return false;
       }else{
+         System.out.println("Кот сделал кусь");
          this.satiety--;
          return true;
       }
    }
    private boolean countsUnicorns(int satiety){
       if(satiety<=0){
-         eat(1);
          return false;
       }else{
+         System.out.println("Кот считате идинорогов");
          this.satiety--;
          return true;
       }
@@ -128,44 +135,26 @@ public class Kotik {
             int flag=(int)(Math.random()*5)+1;
             switch(flag){
                case(1):
-                  if(bite(satiety)==true){
-                     System.out.println("Кот сделал кусь");
-                  }else{
-                     System.out.println("Кот поел");
-                     eat(satiety);
-                  }
+                  if(bite(satiety)==false)
+                     eat(2);
+
                   break;
                case (2):
-                  if(chaseMouse(satiety)==true){
-                     System.out.println("Кот поймал мышь");
-                  }else{
-                     System.out.println("Кот поел");
-                     eat(satiety);
-                  }
+                  if(chaseMouse(satiety)==false)
+                     eat(2);
                   break;
                case(3):
-                  if(play(satiety)==true){
-                     System.out.println("Кот играет");
-                  }else{
-                     System.out.println("Кот поел");
-                     eat(satiety);
-                  }
+                  if(play(satiety)==false)
+                     eat(1);
                   break;
                case(4):
-                  if(sleep(satiety)==true){
-                     System.out.println("Кот спит");
-                  }else{
-                     System.out.println("Кот поел");
-                     eat(satiety);
-                  }
+                  if(sleep(satiety)==false)
+                     eat(3);
                   break;
                case(5):
-                  if(countsUnicorns(satiety)==true){
-                     System.out.println("Кот считает единорогов");
-                  }else{
-                     System.out.println("Кот поел");
-                     eat(satiety);
-                  }
+                  if(countsUnicorns(satiety)==true)
+                     eat(2);
+                  break;
             }
          }
    }

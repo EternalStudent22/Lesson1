@@ -3,8 +3,8 @@ import model.Kotik;
 public class Application {
     public  static void main(String[] args){
         Kotik cat=new Kotik();
-        Kotik cat2=new Kotik("Myrka",3,25,"my-my");
         cat.setKotik("Vladimir",2,15,"my-my");
+        Kotik cat2=new Kotik("Myrka",3,25,"my-my");
         System.out.println("Имя:"+cat.getNameCat());
         System.out.println("Вес:"+cat.getWeightCat());
         cat.liveAnotherDay();
