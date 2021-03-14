@@ -85,6 +85,7 @@ public class Kotik {
 
    private boolean sleep(int satiety){
       if(satiety<=0){
+         System.out.print("Кот не хочет спать, он голодный. ");
          return false;
       }else{
          System.out.println("Кот спит");
@@ -94,6 +95,7 @@ public class Kotik {
    }
    private boolean play(int satiety){
       if(satiety<=0){
+         System.out.print("Кот не хочет играть, он голодный. ");
          return false;
       }else{
          System.out.println("Кот играет");
@@ -103,6 +105,7 @@ public class Kotik {
    }
    private boolean chaseMouse(int satiety){
       if(satiety<=0){
+         System.out.print("Кот не хочет ловить мышь, он голодный. ");
          return false;
       }else{
          System.out.println("Кот ловит мышь");
@@ -112,6 +115,7 @@ public class Kotik {
    }
    private boolean bite(int satiety){
       if(satiety<=0){
+         System.out.print("Кот не хочет делать кусь, он голодный. ");
          return false;
       }else{
          System.out.println("Кот сделал кусь");
@@ -121,6 +125,7 @@ public class Kotik {
    }
    private boolean countsUnicorns(int satiety){
       if(satiety<=0){
+         System.out.print("Кот не хочет считать единорогов, он голодный. ");
          return false;
       }else{
          System.out.println("Кот считате идинорогов");
@@ -132,12 +137,12 @@ public class Kotik {
 
    public void liveAnotherDay(){
          for(int i=0;i<24;i++){
+            System.out.print("Итерация №"+(i+1)+":");
             int flag=(int)(Math.random()*5)+1;
             switch(flag){
                case(1):
                   if(bite(satiety)==false)
                      eat(2);
-
                   break;
                case (2):
                   if(chaseMouse(satiety)==false)
@@ -152,7 +157,7 @@ public class Kotik {
                      eat(3);
                   break;
                case(5):
-                  if(countsUnicorns(satiety)==true)
+                  if(countsUnicorns(satiety)==false)
                      eat(2);
                   break;
             }
